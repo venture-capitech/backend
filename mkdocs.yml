@@ -3,8 +3,6 @@ site_url: https://venture-capitech.github.io/backend
 
 theme:
   name: material
-  features:
-    - content.tabs.link
 
 markdown_extensions:
   - pymdownx.superfences
