@@ -2,8 +2,11 @@
 
 This is the backend service for the wallet app.
 
+visit repo docs [here](https://venture-capitech.github.io/backend)
 
-* all commands are meant to be executed from the root directory of the app.
+<hr>
+
+** all commands are meant to be executed from the root directory of the app.
 
 ## Getting started
 
@@ -13,7 +16,6 @@ This is the backend service for the wallet app.
 ``` bash
 sh scripts/install-requirements.sh
 ```
-
 === "Windows"
 ``` bash
 todo
@@ -25,7 +27,6 @@ todo
 ``` bash
 sh scripts/start.sh
 ```
-
 === "Windows"
 ``` bash
 todo
@@ -34,7 +35,9 @@ todo
 ## Live documentation
 
 For live documentation please use (depending on preferences)
+
 - [Swagger UI](http://127.0.0.1:8000/docs)
+
 - [Re-docs](http://127.0.0.1:8000/redoc)
 
 
@@ -46,7 +49,6 @@ To push all to github, including source code as well as documentation, please us
 ``` bash
 sh scripts/push-all.sh
 ```
-
 === "Windows"
 ``` bash
 todo
