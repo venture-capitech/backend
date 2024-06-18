@@ -1,6 +1,6 @@
 # Getting started
 
-\* all commands are meant to be executed from the root directory of the app.
+\* note: all commands are meant to be executed from the root directory of the app.
 
 1. Install requirements
 
