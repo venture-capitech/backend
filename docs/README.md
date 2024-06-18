@@ -13,24 +13,26 @@ visit repo docs [here](https://venture-capitech.github.io/backend)
 1. Install requirements
 
 === "MacOS/ Linux"
-``` bash
-sh scripts/install-requirements.sh
-```
+    ``` bash
+    sh scripts/install-requirements.sh
+    ```
+    
 === "Windows"
-``` bash
-todo
-```
+    ``` bash
+    todo
+    ```
 
 2. Spin up the services
 
 === "MacOS/ Linux"
-``` bash
-sh scripts/start.sh
-```
+    ``` bash
+    sh scripts/start.sh
+    ```
+
 === "Windows"
-``` bash
-todo
-```
+    ``` bash
+    todo
+    ```
 
 ## Live documentation
 
@@ -46,13 +48,14 @@ For live documentation please use (depending on preferences)
 To push all to github, including source code as well as documentation, please use
 
 === "MacOS/ Linux"
-``` bash
-sh scripts/push-all.sh
-```
+    ``` bash
+    sh scripts/push-all.sh
+    ```
+
 === "Windows"
-``` bash
-todo
-```
+    ``` bash
+    todo
+    ```
 
 ## help
 
