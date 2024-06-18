@@ -13,11 +13,3 @@ To get started, see
 
 - [Pushing to Github](scripts/pushing-to-github.md)
 
-
-## Live documentation
-
-For live documentation please use (depending on preferences)
-
-- [Swagger UI](http://127.0.0.1:8000/docs)
-
-- [Re-docs](http://127.0.0.1:8000/redoc)
