@@ -11,5 +11,5 @@ To get started, see
 
 - [Getting Started](scripts/getting-started.md)
 
-- [Pushing to Github](scripts/pushing-to-github.md)
+- [Pushing to Github](scripts/push-to-github.md)
 
