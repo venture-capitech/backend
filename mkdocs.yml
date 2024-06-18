@@ -1,5 +1,5 @@
-site_name: My Docs
-site_url: https://mydomain.org/mysite
+site_name: Venture Capitech TikTok Techjam backend docs
+site_url: https://venture-capitech.github.io/backend
 
 theme:
   name: material
@@ -12,5 +12,4 @@ markdown_extensions:
       alternate_style: true
 nav:
   - Home: README.md
-  - Help: help.md
-
+  - Getting Started: getting-started.md
