@@ -1,2 +1,2 @@
 
-fastapi dev src/main.py
+fastapi dev backend/main.py
