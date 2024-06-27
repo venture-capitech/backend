@@ -19,9 +19,11 @@ def get_db():
     finally:
         db.close()
 
-@app.api_route("/{path_name:path}", methods=["GET"])
-async def catch_all_get(req: Request, path_name: str):
-    raise HTTPException(status_code=403, detail="User sent a GET Request")
+# Remove or modify catch_all_get endpoint
+# Only uncomment if you specifically need this for other purposes
+# @app.api_route("/{path_name:path}", methods=["GET"])
+# async def catch_all_get(req: Request, path_name: str):
+#     raise HTTPException(status_code=403, detail="User sent a GET Request")
 
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
@@ -36,4 +38,3 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
-
