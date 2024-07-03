@@ -8,5 +8,5 @@ router = APIRouter()
 
 router.include_router(
     db.router,
-    prefix="/debug"
+    prefix=""
 )

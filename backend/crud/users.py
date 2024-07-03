@@ -1,11 +1,15 @@
 # incl_path
 
+from .. import deps
 from .. import models
 from .. import schemas
 from .. import utils
 
+
+from typing import Annotated
 from sqlalchemy.orm import Session
 from enum import Enum, auto
+from fastapi import Depends
 
 
 class CONSTS(Enum):
@@ -62,6 +66,14 @@ def verify_user(db: Session, user: schemas.UserCredentials):
     if existing_usr is None:
         return CONSTS.USER_NOT_FOUND
 
-    if existing_usr.hashed_password == utils.hash.hash(user.password):
+    if utils.hash.verify_hash(user.password, existing_usr.hashed_password):
         return CONSTS.USER_VERIFIED    
     return CONSTS.USER_NOT_VERIFIED
+
+
+# todo fix this
+# async def get_current_user(db, token: Annotated[str, Depends(deps.oauth2_scheme)]):
+#     user = get_first_user(db, token.user)
+#     if not user:
+#         return CONSTS.USER_NOT_VERIFIED
+#     return user
