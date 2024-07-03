@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, Enum
 from sqlalchemy.orm import relationship
-from .database import Base
+from sqlalchemy.orm import declarative_base
+# from .database import Base
 import enum
 
 class EntityType(enum.Enum):
@@ -8,21 +9,26 @@ class EntityType(enum.Enum):
     Business = 1
     Personal = 2
 
+Base = declarative_base()
+
 class Account(Base):
     __tablename__ = "accounts"
 
     id = Column(Integer, primary_key=True, index=True)
     entityType = Column(Enum(EntityType), index=True)
+    #entity_type = Column(Integer, index=True)
     balance = Column(Integer, default=0)
     owner = Column(Integer, ForeignKey("users.id"))
 
     user = relationship("User", back_populates="accounts")
     transactions = relationship("Transaction", back_populates="from_account", foreign_keys="[Transaction.from_account_id]")
+    
 
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True) # don;t know if this is needed
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
