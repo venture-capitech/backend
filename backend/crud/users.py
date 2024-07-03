@@ -44,7 +44,7 @@ def get_first_user(db: Session, **kwargs):
     return ret
 
 
-def create_user(db: Session, user: schemas.UserCreate):
+def create_user(db: Session, user: schemas.UserCredentials):
     existing_usr = get_all_users(db, email=user.email)
     if (existing_usr is None):
         hashed_pw = utils.hash.hash(user.password)
@@ -56,13 +56,12 @@ def create_user(db: Session, user: schemas.UserCreate):
     return CONSTS.USER_EXISTS
 
 
-def verify_user(db: Session, user: schemas.UserCreate):
+def verify_user(db: Session, user: schemas.UserCredentials):
     # todo refactor schema name
     existing_usr = get_first_user(db, email=user.email)
     if existing_usr is None:
         return CONSTS.USER_NOT_FOUND
 
     if existing_usr.hashed_password == utils.hash.hash(user.password):
-        return CONSTS.USER_VERIFIED
-    
+        return CONSTS.USER_VERIFIED    
     return CONSTS.USER_NOT_VERIFIED
