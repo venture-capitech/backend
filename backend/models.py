@@ -1,23 +1,29 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, Enum
+from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
+from sqlalchemy import Enum as sql_enum
+
 from sqlalchemy.orm import relationship
 from .database import Base
-import enum
 
-class EntityType(enum.Enum):
-    SuperUser = 0
-    Business = 1
-    Personal = 2
+from enum import auto, Enum
+
+
+class EntityType(Enum):
+    SuperUser = auto()
+    Business = auto()
+    Personal = auto()
+
 
 class Account(Base):
     __tablename__ = "accounts"
 
     id = Column(Integer, primary_key=True, index=True)
-    entityType = Column(Enum(EntityType), index=True)
+    entityType = Column(sql_enum(EntityType), index=True)
     balance = Column(Integer, default=0)
     owner = Column(Integer, ForeignKey("users.id"))
 
     user = relationship("User", back_populates="accounts")
     transactions = relationship("Transaction", back_populates="from_account", foreign_keys="[Transaction.from_account_id]")
+
 
 class User(Base):
     __tablename__ = "users"
@@ -28,6 +34,7 @@ class User(Base):
     is_active = Column(Boolean, default=True)
 
     accounts = relationship("Account", back_populates="user")
+
 
 class Transaction(Base):
     __tablename__ = "transactions"

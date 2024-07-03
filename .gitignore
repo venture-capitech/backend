@@ -1,6 +1,6 @@
 # app specific
 
-sites/*
+site/*
 
 venv/*
 
