@@ -16,6 +16,7 @@ class EntityType(Enum):
 class Account(Base):
     __tablename__ = "accounts"
 
+    # todo change ID to use uuid/ hex/ long long int instead. i rather it not be via auto increament -@scott
     id = Column(Integer, primary_key=True, index=True)
     entityType = Column(sql_enum(EntityType), index=True)
     balance = Column(Integer, default=0)
@@ -28,6 +29,7 @@ class Account(Base):
 class User(Base):
     __tablename__ = "users"
 
+    # todo change ID to use uuid/ hex/ long long int instead. i rather it not be via auto increament -@scott
     id = Column(Integer, primary_key=True)
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
@@ -39,6 +41,7 @@ class User(Base):
 class Transaction(Base):
     __tablename__ = "transactions"
 
+    # todo change ID to use uuid/ hex/ long long int instead. i rather it not be via auto increament -@scott
     id = Column(Integer, primary_key=True)
     amount = Column(Integer)
     from_account_id = Column(Integer, ForeignKey("accounts.id"))
